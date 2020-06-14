@@ -1,0 +1,42 @@
+#include "iostream"
+void mifuncion(float*,float*);//es la variable que utilizare para el salario 
+using namespace std;
+
+
+int main(void){
+float total,real;
+    cout <<"salario total y real de cada empleado"<<endl<<endl;
+    mifuncion(&total,&real);
+    cout<< "el salario mensual total es : $"<<total<<endl;
+    cout<< "el salario mensual real es : $"<<real;
+    return 0;
+    
+}
+
+void mifuncion(float*total,float*real){
+    float horastr,horasex,seg,afp,imp;
+    cout<<"horas trabajadas del empleado:";
+    cin>>horastr;
+    cout<<"horas extras del empleado:";
+    cin>>horasex;
+    
+    
+    *total= 30*(horastr*1.75+horasex*2.50);// formula para calcular la cantidad ganada  del empleado 
+    seg=*total*0.04;//seguro social 
+    afp=*total*0.0625;//AFP
+    *real=*total-seg-afp;//con esta formula calcularemos el salario real ya con descuento 
+    
+    if(*total>500)//si el salario total supera los 500 dolares se le cobran impuesto 
+    {
+        imp=*total *0.1;
+        *real=*real-imp;
+    } 
+cout<<endl;
+}
+    
+    
+    
+    
+    
+    
+    
